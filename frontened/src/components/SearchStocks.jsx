@@ -44,15 +44,7 @@ const SearchStocks = () => {
         }
     };
     const handleAddStockToPortofolio = stockData => {
-      axios.post(
-          `${BASE_URL}/addstock`,
-          stockData,
-          {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-      )
+      axios.post(`${BASE_URL}/addstock`,stockData)
       .then(res => {
           toast.success(`Successfully added ${stockData.ticker} to portfolio!`);
           // Remove the added stock from results to prevent duplicate additions

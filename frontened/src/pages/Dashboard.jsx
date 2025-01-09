@@ -43,11 +43,7 @@ const Dashboard = () => {
             if (showToast) {
                 toast.loading('Fetching dashboard data...');
             }
-            const res = await axios.get(`${BASE_URL}/stats`, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+            const res = await axios.get(`${BASE_URL}/stats`);
             setDashboardData(res.data.data);
         } catch (error) {
             toast.error(`Error fetching dashboard data - ${error.message}`);
@@ -68,11 +64,7 @@ const Dashboard = () => {
 
     const handleEditStockQuantity = async (stockId, quantity) => {
         try {
-            await axios.put(`${BASE_URL}/${stockId}`, { quantity },{
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+            await axios.put(`${BASE_URL}/${stockId}`, { quantity });
             toast.success('Stock quantity updated successfully');
             await fetchDashBoardData();
         } catch (error) {
@@ -87,11 +79,7 @@ const Dashboard = () => {
     };
     const handleDeleteStock = async stockId => {
         try {
-            await axios.delete(`${BASE_URL}/${stockId}`,{
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+            await axios.delete(`${BASE_URL}/${stockId}`);
             // Refetch dashboard data after successful deletion
             toast.success('Stock deleted successfully');
             await fetchDashBoardData();

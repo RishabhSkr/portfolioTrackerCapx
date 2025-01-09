@@ -12,11 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 // CORS configuration
-app.use(cors({
-    origin: ['http://localhost:5173',"https://portfolio-tracker-capx.vercel.app", process.env.CLIENT_URL],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-}));
+app.use(cors());
 
 
 mongoose
