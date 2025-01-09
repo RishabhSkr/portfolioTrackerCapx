@@ -1,6 +1,8 @@
 # Portfolio Tracker 📈
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
 **🎉 This application has been deployed and is live! Check it out now**
-### **[🌟 Click here to try the Live Demo! 🌟](Yourlivewebsite)**
+### **[🌟 Click here to try the Live Demo! 🌟](https://portfolio-tracker-capx.vercel.app/)**
 
 A comprehensive portfolio tracker application enabling users to oversee their stock investments, retrieve real-time stock prices, and evaluate their portfolio's performance. Powered by a robust frontend and backend, the application seamlessly integrates portfolio management with stock price retrieval.
 
