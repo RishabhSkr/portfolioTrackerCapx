@@ -19,7 +19,7 @@ import {
 import { useEffect, useState } from 'react';
 import { PieChart } from '../components/Chart';
 import StockList from '../components/StockList';
-import { BASE_URL } from '../../constants';
+import { BASE_URL, } from '../../constants';
 import axios from 'axios';
 import EditStockDialog from '../components/EditStockDialog';
 import toast from 'react-hot-toast';
@@ -43,7 +43,11 @@ const Dashboard = () => {
             if (showToast) {
                 toast.loading('Fetching dashboard data...');
             }
-            const res = await axios.get(`${BASE_URL}/stats`);
+            const res = await axios.get(`${BASE_URL}/stats`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             setDashboardData(res.data.data);
         } catch (error) {
             toast.error(`Error fetching dashboard data - ${error.message}`);
@@ -64,7 +68,11 @@ const Dashboard = () => {
 
     const handleEditStockQuantity = async (stockId, quantity) => {
         try {
-            await axios.put(`${BASE_URL}/${stockId}`, { quantity });
+            await axios.put(`${BASE_URL}/${stockId}`, { quantity },{
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             toast.success('Stock quantity updated successfully');
             await fetchDashBoardData();
         } catch (error) {
@@ -79,7 +87,11 @@ const Dashboard = () => {
     };
     const handleDeleteStock = async stockId => {
         try {
-            await axios.delete(`${BASE_URL}/${stockId}`);
+            await axios.delete(`${BASE_URL}/${stockId}`,{
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             // Refetch dashboard data after successful deletion
             toast.success('Stock deleted successfully');
             await fetchDashBoardData();
