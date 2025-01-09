@@ -13,9 +13,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 // CORS configuration
 app.use(cors({
-    origin: ['http://localhost:5173',process.env.CLIENT_URL],
+    origin: ['http://localhost:5173',"https://portfolio-tracker-capx.vercel.app"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type'],
 }));
 
 
